@@ -8,3 +8,4 @@ title = 'Hello World'
 This is my first Hugo site.
 
 I'm running Hugo inside WSL.
+And I am deploying via GitHub Actions!
