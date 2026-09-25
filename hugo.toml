@@ -1,0 +1,4 @@
+baseURL = 'https://guptg.github.io/'
+locale = 'en-us'
+title = 'GaurilaBlogs'
+theme = 'hugo-theme-stack'
