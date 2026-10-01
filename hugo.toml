@@ -1,4 +1,4 @@
-baseURL = 'https://guptg.github.io/'
+baseURL = 'https://gaurig.com/'
 locale = 'en-us'
 title = 'GaurilaBlogs'
 theme = 'hugo-theme-stack'
