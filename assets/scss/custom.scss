@@ -1,0 +1,178 @@
+:root {
+    --body-background: #fff0ea;
+    --body-text-color: #634f60;
+
+    --accent-color: #660e62;
+    --accent-color-darker: #4f0b4c;
+    --accent-color-text: #fffaf7;
+
+    --card-background: rgba(255, 249, 246, 0.94);
+    --card-background-selected: rgba(201, 107, 112, 0.16);
+    --card-text-color-main: #3e3044;
+    --card-text-color-secondary: #695862;
+    --card-text-color-tertiary: #8b737e;
+    --card-separator-color: rgba(102, 14, 98, 0.18);
+
+    --blockquote-background-color: rgba(245, 173, 173, 0.22);
+    --alert-note-color: #6b3473;
+    --alert-note-background: rgba(102, 14, 98, 0.08);
+    --alert-tip-color: #90511e;
+    --alert-tip-background: rgba(249, 216, 134, 0.2);
+    --alert-important-color: #9c3d47;
+    --alert-important-background: rgba(201, 107, 112, 0.13);
+    --alert-warning-color: #87521f;
+    --alert-warning-background: rgba(249, 216, 134, 0.22);
+    --alert-caution-color: #9a3d45;
+    --alert-caution-background: rgba(245, 173, 173, 0.16);
+
+    --link-background-color: 201, 107, 112;
+    --code-background-color: rgba(201, 107, 112, 0.1);
+    --code-text-color: #4b3849;
+    --table-border-color: rgba(102, 14, 98, 0.18);
+    --tr-even-background-color: rgba(240, 168, 152, 0.13);
+    --kbd-border-color: rgba(102, 14, 98, 0.25);
+
+    --pre-text-color: #3e3044;
+    --pre-background-color: rgba(255, 249, 246, 0.96);
+    --syntax-keyword-color: #660e62;
+    --syntax-name-color: #8c4e67;
+    --syntax-string-color: #a34b3d;
+    --syntax-number-color: #87521f;
+    --syntax-comment-color: #8b737e;
+
+    &[data-scheme="dark"] {
+        --body-background: #1a0b2e;
+        --body-text-color: #b8b3d4;
+
+        --accent-color: #ff0080;
+        --accent-color-darker: #e6006b;
+        --accent-color-text: #1a0b2e;
+
+        --card-background: rgba(42, 25, 75, 0.92);
+        --card-background-selected: rgba(255, 0, 128, 0.16);
+        --card-text-color-main: #e0e0ff;
+        --card-text-color-secondary: #b8b3d4;
+        --card-text-color-tertiary: #8a7ca8;
+        --card-separator-color: rgba(255, 0, 128, 0.3);
+
+        --blockquote-background-color: rgba(0, 206, 209, 0.1);
+        --alert-note-color: #00ced1;
+        --alert-note-background: rgba(0, 206, 209, 0.12);
+        --alert-tip-color: #ff8a62;
+        --alert-tip-background: rgba(255, 107, 53, 0.12);
+        --alert-important-color: #ff4d9a;
+        --alert-important-background: rgba(255, 0, 128, 0.12);
+        --alert-warning-color: #ffd166;
+        --alert-warning-background: rgba(255, 209, 102, 0.12);
+        --alert-caution-color: #ff7a8a;
+        --alert-caution-background: rgba(255, 107, 107, 0.12);
+
+        --link-background-color: 0, 206, 209;
+        --code-background-color: rgba(0, 0, 0, 0.35);
+        --code-text-color: #e0e0ff;
+        --table-border-color: rgba(255, 0, 128, 0.3);
+        --tr-even-background-color: rgba(61, 43, 95, 0.7);
+        --kbd-border-color: rgba(0, 206, 209, 0.35);
+
+        --pre-text-color: #e0e0ff;
+        --pre-background-color: #201238;
+        --syntax-keyword-color: #ff4d9a;
+        --syntax-name-color: #00ced1;
+        --syntax-string-color: #ff8a62;
+        --syntax-number-color: #c4a0ff;
+        --syntax-comment-color: #8a7ca8;
+    }
+}
+
+body {
+    background-image:
+        radial-gradient(ellipse at 14% 20%, rgba(102, 14, 98, 0.22) 0%, rgba(201, 107, 112, 0.16) 28%, transparent 62%),
+        radial-gradient(ellipse at 88% 34%, rgba(201, 107, 112, 0.24) 0%, rgba(245, 173, 173, 0.2) 30%, transparent 66%),
+        radial-gradient(ellipse at 35% 78%, rgba(249, 216, 134, 0.32) 0%, rgba(240, 168, 152, 0.2) 40%, transparent 68%),
+        radial-gradient(ellipse at 95% 92%, rgba(186, 85, 58, 0.18) 0%, rgba(249, 216, 134, 0.12) 36%, transparent 64%);
+}
+
+[data-scheme="dark"] body {
+    background-image: linear-gradient(135deg, #1a0b2e 0%, #16213e 25%, #0f3460 75%, #533a7b 100%);
+}
+
+.chroma {
+    color: var(--pre-text-color);
+    background-color: var(--pre-background-color);
+}
+
+.chroma .k,
+.chroma .kc,
+.chroma .kd,
+.chroma .kn,
+.chroma .kp,
+.chroma .kr,
+.chroma .kt,
+.chroma .no,
+.chroma .o,
+.chroma .ow,
+.chroma .nt {
+    color: var(--syntax-keyword-color);
+}
+
+.chroma .na,
+.chroma .nc,
+.chroma .nd,
+.chroma .ne,
+.chroma .nf,
+.chroma .nx {
+    color: var(--syntax-name-color);
+}
+
+.chroma .ld,
+.chroma .s,
+.chroma .sa,
+.chroma .sb,
+.chroma .sc,
+.chroma .dl,
+.chroma .sd,
+.chroma .s2,
+.chroma .sh,
+.chroma .si,
+.chroma .sx,
+.chroma .sr,
+.chroma .s1,
+.chroma .ss {
+    color: var(--syntax-string-color);
+}
+
+.chroma .l,
+.chroma .m,
+.chroma .mb,
+.chroma .mf,
+.chroma .mh,
+.chroma .mi,
+.chroma .il,
+.chroma .mo,
+.chroma .se {
+    color: var(--syntax-number-color);
+}
+
+.chroma .c,
+.chroma .ch,
+.chroma .cm,
+.chroma .c1,
+.chroma .cs,
+.chroma .cp,
+.chroma .cpf,
+.chroma .gu {
+    color: var(--syntax-comment-color);
+}
+
+.chroma .err,
+.chroma .gd {
+    color: var(--alert-caution-color);
+}
+
+.chroma .gi {
+    color: var(--alert-note-color);
+}
+
+.chroma .hl {
+    background-color: var(--card-background-selected);
+}
