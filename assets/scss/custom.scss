@@ -269,12 +269,14 @@ body {
     background-color: var(--card-background-selected);
 }
 
-:root[data-scheme="dark"] .article-category a {
+:root[data-scheme="dark"] .article-category a,
+:root[data-scheme="dark"] .article-tags a {
     background-color: var(--body-text-color) !important;
     color: #3e3044 !important;
 }
 
-:root[data-scheme="dark"] .article-category a:hover {
+:root[data-scheme="dark"] .article-category a:hover,
+:root[data-scheme="dark"] .article-tags a:hover {
     background-color: var(--card-text-color-secondary) !important;
     color: #3e3044 !important;
 }
