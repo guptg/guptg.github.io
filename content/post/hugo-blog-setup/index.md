@@ -3,6 +3,8 @@ date = '2026-09-22T19:44:01-04:00'
 draft = false
 title = 'Hugo Blog Setup'
 image = 'cover.png'
+categories = ['How-to']
+tags = ['Tech']
 +++
 
 I am no frontend wizard, yet I was able to set up a fully customizable website for my blog largely thanks to Hugo. 

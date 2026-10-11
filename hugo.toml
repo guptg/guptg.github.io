@@ -2,3 +2,11 @@ baseURL = 'https://gaurig.com/'
 locale = 'en-us'
 title = 'Gauri G'
 theme = 'hugo-theme-stack'
+
+[params.widgets]
+    homepage = [
+        { type = "search" },
+        { type = "archives" },
+        { type = "categories" },
+        { type = "tag-cloud" },
+    ]
