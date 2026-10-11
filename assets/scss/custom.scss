@@ -93,6 +93,54 @@
     }
 }
 
+.sidebar-avatar-placeholder {
+    width: 150px;
+    height: 150px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--card-background);
+    border: 1px solid var(--card-separator-color);
+    box-shadow: var(--shadow-l1);
+}
+
+.sidebar-social {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin: 0;
+    padding: 0;
+
+    li,
+    span {
+        display: inline-flex;
+    }
+
+    span {
+        color: var(--body-text-color);
+    }
+
+    svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+#main-menu li.sidebar-menu-disabled {
+    display: flex;
+    align-items: center;
+    color: var(--body-text-color);
+    gap: var(--menu-icon-separation);
+    cursor: default;
+
+    svg {
+        width: 20px;
+        height: 20px;
+        stroke: currentColor;
+        stroke-width: 1.33;
+    }
+}
+
 body {
     background-image:
         radial-gradient(ellipse at 14% 20%, rgba(102, 14, 98, 0.22) 0%, rgba(201, 107, 112, 0.16) 28%, transparent 62%),
