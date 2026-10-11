@@ -10,3 +10,6 @@ theme = 'hugo-theme-stack'
         { type = "categories" },
         { type = "tag-cloud" },
     ]
+    page = [
+        { type = "toc" },
+    ]
