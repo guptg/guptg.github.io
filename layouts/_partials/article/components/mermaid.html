@@ -1,0 +1,76 @@
+{{- if .Store.Get "hasMermaid" -}}
+{{- $cfg := site.Params.article.mermaid | default dict -}}
+{{- $lightVariables := dict
+    "background" "#fff9f6"
+    "primaryColor" "#f5c7ca"
+    "primaryTextColor" "#3e3044"
+    "primaryBorderColor" "#c96b70"
+    "lineColor" "#8c4e67"
+    "secondaryColor" "#f4d8e1"
+    "tertiaryColor" "#fbe3d8"
+    "mainBkg" "#f5c7ca"
+    "secondBkg" "#f4d8e1"
+    "tertiaryBkg" "#fbe3d8"
+    "clusterBkg" "#fff0ea"
+    "clusterBorder" "#c96b70"
+    "titleColor" "#660e62"
+    "edgeLabelBackground" "#fff9f6"
+    "textColor" "#3e3044"
+-}}
+{{- $darkVariables := dict
+    "background" "#190d2c"
+    "primaryColor" "#e3a3d7"
+    "primaryTextColor" "#35102e"
+    "primaryBorderColor" "#d889c5"
+    "lineColor" "#36eaff"
+    "secondaryColor" "#efc2e5"
+    "tertiaryColor" "#f6dced"
+    "mainBkg" "#e3a3d7"
+    "secondBkg" "#efc2e5"
+    "tertiaryBkg" "#f6dced"
+    "clusterBkg" "#211438"
+    "clusterBorder" "#ae83ff"
+    "titleColor" "#e5b1dd"
+    "edgeLabelBackground" "#211238"
+    "textColor" "#35102e"
+-}}
+
+<div class="mermaid-modal" id="mermaid-modal">
+    <div class="mermaid-modal-header">
+        <div class="mermaid-modal-controls">
+            <button data-zoom="-1">− Zoom Out</button>
+            <button data-zoom="0">Reset (100%)</button>
+            <button data-zoom="1">+ Zoom In</button>
+            <button data-zoom="fit">Fit to Screen</button>
+        </div>
+        <button class="mermaid-modal-close" id="mermaid-modal-close">✕ Close (Esc)</button>
+    </div>
+    <div class="mermaid-modal-body" id="mermaid-modal-body">
+        <div class="mermaid-modal-content" id="mermaid-modal-content"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+{{- $opts := dict "minify" hugo.IsProduction "format" "esm" -}}
+{{- $script := resources.Get "ts/mermaid.ts" | js.Build $opts -}}
+{{- $jsConfig := dict
+    "transparentBackground" ($cfg.transparentBackground | default false)
+    "lightTheme"            "base"
+    "darkTheme"             "base"
+    "lightThemeVariables"   $lightVariables
+    "darkThemeVariables"    $darkVariables
+    "securityLevel"         ($cfg.securityLevel | default "strict")
+    "look"                  ($cfg.look | default "classic")
+    "htmlLabels"            (not (eq ($cfg.htmlLabels | default true) false))
+-}}
+{{- with $cfg.maxTextSize }}{{ $jsConfig = merge $jsConfig (dict "maxTextSize" .) }}{{ end -}}
+{{- with $cfg.maxEdges }}{{ $jsConfig = merge $jsConfig (dict "maxEdges" .) }}{{ end -}}
+{{- with $cfg.fontSize }}{{ $jsConfig = merge $jsConfig (dict "fontSize" .) }}{{ end -}}
+{{- with $cfg.fontFamily }}{{ $jsConfig = merge $jsConfig (dict "fontFamily" .) }}{{ end -}}
+{{- with $cfg.curve }}{{ $jsConfig = merge $jsConfig (dict "curve" .) }}{{ end -}}
+{{- with $cfg.logLevel }}{{ $jsConfig = merge $jsConfig (dict "logLevel" .) }}{{ end -}}
+<script type="module">
+import { initMermaidPage } from '{{ $script.RelPermalink }}';
+initMermaidPage({{ $jsConfig | jsonify | safeJS }});
+</script>
+{{- end -}}
