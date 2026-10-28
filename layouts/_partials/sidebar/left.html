@@ -6,7 +6,16 @@
     </button>
 
     <header>
-        <figure class="site-avatar sidebar-avatar-placeholder" role="img" aria-label="Profile image placeholder"></figure>
+        {{ with resources.Get "img/avatar.jpg" }}
+            {{ $avatar := .Resize "300x300 webp q85" }}
+            <figure class="site-avatar sidebar-avatar-placeholder">
+                <a href="{{ $.Site.Home.RelPermalink }}">
+                    <img src="{{ $avatar.RelPermalink }}" width="150" height="150" class="sidebar-avatar-img" alt="Watercolour portrait of Gauri in front of a mosaic wall of glass bottles">
+                </a>
+            </figure>
+        {{ else }}
+            <figure class="site-avatar sidebar-avatar-placeholder" role="img" aria-label="Profile image placeholder"></figure>
+        {{ end }}
 
         <div class="site-meta">
             <h1 class="site-name"><a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a></h1>

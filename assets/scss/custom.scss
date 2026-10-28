@@ -101,6 +101,30 @@
     background: var(--card-background);
     border: 1px solid var(--card-separator-color);
     box-shadow: var(--shadow-l1);
+    overflow: hidden;
+
+    a {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.left-sidebar header {
+    align-items: center;
+    text-align: center;
+
+    .site-avatar {
+        align-self: center;
+        margin: 0 auto;
+    }
+}
+
+.sidebar-avatar-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .sidebar-social {
