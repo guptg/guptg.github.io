@@ -130,23 +130,44 @@
 .sidebar-social {
     list-style: none;
     display: flex;
+    align-items: center;
     justify-content: center;
     gap: var(--spacing-sm);
     margin: 0;
     padding: 0;
 
-    li,
-    span {
+    li {
         display: inline-flex;
+        align-items: center;
     }
 
-    span {
-        color: var(--body-text-color);
+    a {
+        display: inline-flex;
+        align-items: center;
+
+        &:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 4px;
+        }
     }
 
-    svg {
+    img {
+        display: block;
+    }
+
+    .sidebar-social-github-icon {
         width: 24px;
         height: 24px;
+    }
+
+    .sidebar-social-linkedin-icon {
+        width: auto;
+        height: 24px;
+    }
+
+    .sidebar-social-discord-icon {
+        width: 24px;
+        height: auto;
     }
 }
 
