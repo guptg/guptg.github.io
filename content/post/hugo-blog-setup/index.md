@@ -103,14 +103,31 @@ The second is a Claude project dedicated to this blog. Its instructions tell Cla
 This is the path a post takes from a blank page to the live site:
 
 ```mermaid
-flowchart TD
-    A["Write in Obsidian (content/post)"] --> B["Review with Claude"]
-    B --> C["Customize with Claude Code (when needed)"]
-    C --> D["Test locally with hugo server"]
-    D --> E["Commit"]
-    E --> F["Push to main"]
-    F --> G["GitHub Actions builds and deploys"]
-    G --> H["Live at gaurig.com"]
+sequenceDiagram
+    actor Author
+    participant Obsidian
+    participant Claude
+    participant Code as Claude Code / VS Code
+    participant Hugo as Local Hugo server
+    participant Git as Local Git
+    participant GitHub
+    participant Actions as GitHub Actions
+    participant Pages as GitHub Pages
+
+    Author->>Obsidian: Write post in content/post
+    Author->>Claude: Request a review
+    Claude-->>Author: Review and feedback
+    opt Site customization needed
+        Author->>Code: Customize the site
+        Code-->>Author: Site changes ready
+    end
+    Author->>Hugo: Test locally
+    Hugo-->>Author: Preview the site
+    Author->>Git: Commit changes
+    Author->>GitHub: Push to main
+    GitHub->>Actions: Trigger build and deployment
+    Actions->>Pages: Build and deploy
+    Pages-->>Author: Live at gaurig.com
 ```
 
 Customization only comes into play when a post needs a change to the site itself, such as a layout override. Everything after the push happens automatically: GitHub Actions builds the site and GitHub Pages serves it.

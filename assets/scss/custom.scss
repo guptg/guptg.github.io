@@ -40,6 +40,9 @@
     --syntax-number-color: #87521f;
     --syntax-comment-color: #8b737e;
 
+    --mermaid-toolbar-btn-bg: rgba(255, 249, 246, 0.72);
+    --mermaid-toolbar-btn-text: #695862;
+
     &[data-scheme="dark"] {
         --body-background: #10091f;
         --body-text-color: #ddd6f5;
@@ -84,8 +87,8 @@
         --syntax-number-color: #c8a1ff;
         --syntax-comment-color: #a995c7;
 
-        --mermaid-toolbar-btn-bg: rgba(255, 53, 200, 0.1);
-        --mermaid-toolbar-btn-text: #f3eaff;
+        --mermaid-toolbar-btn-bg: rgba(243, 234, 255, 0.06);
+        --mermaid-toolbar-btn-text: #d0c2ed;
         --mermaid-modal-bg: rgba(10, 5, 22, 0.97);
         --mermaid-modal-content-bg: #190d2c;
         --mermaid-modal-btn-bg: #30204a;
@@ -222,14 +225,28 @@ body {
     }
 }
 
-[data-scheme="dark"] .mermaid-toolbar button {
-    border: 1px solid #ff35c8;
+.mermaid-toolbar button {
+    padding: 0.35rem 0.7rem;
+    border: 1px solid rgba(105, 88, 98, 0.35);
     box-shadow: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.mermaid-toolbar button:hover {
+    background: rgba(102, 14, 98, 0.08);
+    border-color: rgba(102, 14, 98, 0.45);
+    color: #3e3044;
+    transform: none;
+}
+
+[data-scheme="dark"] .mermaid-toolbar button {
+    border-color: rgba(208, 194, 237, 0.35);
 }
 
 [data-scheme="dark"] .mermaid-toolbar button:hover {
-    background: rgba(255, 53, 200, 0.18);
-    border-color: #ff35c8;
+    background: rgba(208, 194, 237, 0.14);
+    border-color: rgba(208, 194, 237, 0.6);
     color: #f3eaff;
 }
 
